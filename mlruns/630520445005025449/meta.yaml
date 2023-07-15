@@ -1,0 +1,6 @@
+artifact_location: file:///home/pops/myProjects/ts_classification_mlflow_hydra_optuna/mlruns/630520445005025449
+creation_time: 1689402004147
+experiment_id: '630520445005025449'
+last_update_time: 1689402004147
+lifecycle_stage: active
+name: LSTM_FCN
