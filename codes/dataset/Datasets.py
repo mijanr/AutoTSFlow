@@ -32,23 +32,31 @@ class Datasets:
 
         """
         X_train, y_train, X_test, y_test = get_classification_data(dataset_name, split_data=True)
+
+        # reshape the data from (n_ts, dim, ts_len) to (n_ts, ts_len, dim)
+        X_train, X_test = X_train.transpose(0, 2, 1), X_test.transpose(0, 2, 1)
         if ts_length is not None:
             X_train = TimeSeriesResampler(sz=ts_length).fit_transform(X_train)
             X_test = TimeSeriesResampler(sz=ts_length).fit_transform(X_test)
         if normalize:
-            X_train = (X_train - X_train.min(axis=1)[:, None]) / (X_train.max(axis=1)[:, None] - X_train.min(axis=1)[:, None])
-            X_test = (X_test - X_test.min(axis=1)[:, None]) / (X_test.max(axis=1)[:, None] - X_test.min(axis=1)[:, None])
+            X_train = (X_train - X_train.min()) / (X_train.max() - X_train.min())
+            X_test = (X_test - X_test.min()) / (X_test.max() - X_test.min())
+
+        #reshape the data from (n_ts, ts_len, dim) to (n_ts, dim, ts_len)
+        X_train, X_test = X_train.transpose(0, 2, 1), X_test.transpose(0, 2, 1)
 
         #from train, keep 15% for validation
         X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, test_size=0.15, random_state=42)
+        
         #train/val split in tsai format
         X, y, splits = combine_split_data([X_train, X_valid], [y_train, y_valid])
         test_data = {'X': X_test, 'y': y_test}
         return X, y, splits, test_data
     
 if __name__ == "__main__":
+    dataset_name = 'ItalyPowerDemand'
     ds = Datasets()
-    X, y, splits, test_data = ds.get_data('Handwriting', ts_length=24, normalize=True)
+    X, y, splits, test_data = ds.get_data(dataset_name=dataset_name, ts_length=24, normalize=True)
     print(X.shape)
     print(y.shape)
     print(splits)
