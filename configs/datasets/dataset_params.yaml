@@ -1,0 +1,6 @@
+model_params:
+  _target_: codes.dataset.Datasets.Datasets
+
+data_params:
+  ts_length: 24
+  normalize: True
