@@ -24,7 +24,7 @@ python main.py --multirun "dataset_name=[Handwriting]"
 ```
 To run for a specific model:
 ```bash
-python main.py --multirun "dataset_name=[Handwriting]" models=LSTM_FCN"
+python main.py --multirun "dataset_name=[Handwriting]" "models=LSTM_FCN"
 ```
 Model name can be anything that is available in the `codes/models` directory, given corresponding configs are also available.
 
