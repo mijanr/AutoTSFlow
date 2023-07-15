@@ -12,7 +12,7 @@ class LSTM_FCN_classifier:
     c_in: int
         Number of input channels
     c_out: int
-        Nmber of classes
+        Number of classes
     seq_len: int
         Length of the input sequence
     hidden_size: int
