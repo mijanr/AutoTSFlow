@@ -47,6 +47,7 @@ class LSTM_FCN_classifier:
             rnn_dropout=0.0,
             bidirectional=False,
             fc_dropout=0.0,
+            **kwargs
     ):
         self.model = LSTM_FCN(
             c_in = c_in,
