@@ -1,0 +1,6 @@
+artifact_location: file:///home/pops/myProjects/ts_classification_mlflow_hydra_optuna/mlruns/813185422761216114
+creation_time: 1689436009853
+experiment_id: '813185422761216114'
+last_update_time: 1689436009853
+lifecycle_stage: active
+name: GRU_FCN

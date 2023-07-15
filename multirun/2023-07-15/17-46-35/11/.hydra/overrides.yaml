@@ -1,0 +1,9 @@
+- models.model.hidden_size=256
+- models.model.rnn_layers=3
+- models.model.bias=True
+- models.model.cell_dropout=0.30000000000000004
+- models.model.rnn_dropout=0.6
+- models.model.bidirectional=True
+- models.model.fc_dropout=0.5
+- dataset_name=[ECG200]
+- models=GRU_FCN
