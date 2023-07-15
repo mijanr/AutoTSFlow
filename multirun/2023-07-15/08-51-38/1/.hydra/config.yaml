@@ -1,0 +1,21 @@
+dataset_name:
+- Handwriting
+training_params:
+  epochs: 5
+  lr: 0.001
+datasets:
+  model_params:
+    _target_: codes.dataset.Datasets.Datasets
+  data_params:
+    ts_length: 24
+    normalize: true
+models:
+  model:
+    _target_: codes.models.LSTM_FCN.LSTM_FCN_classifier
+    hidden_size: 256
+    rnn_layers: 1
+    bias: false
+    cell_dropout: 0.1
+    rnn_dropout: 0.2
+    bidirectional: true
+    fc_dropout: 0.30000000000000004
