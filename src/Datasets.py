@@ -7,7 +7,7 @@ class Datasets:
     def __init__(self) -> None:
         pass
 
-    def get_data(self, dataset_name:str, ts_length:int, normalize:bool)->Tuple[np.ndarray, np.ndarray, list]:
+    def get_data(self, dataset_name:str, ts_length:int, normalize:bool)->Tuple[np.ndarray, np.ndarray, list, dict]:
         """
         Get UCR_UEA datasets
         
@@ -28,16 +28,30 @@ class Datasets:
         y : np.ndarray
             Target labels
         splits : list
-            List of indices for train, 
+            List of indices for train, validation splits
+        test_data : dict
+            Dictionary containing test data
+            {'X': np.ndarray, 'y': np.ndarray}
 
         """
         X_train, y_train, X_test, y_test = get_classification_data(dataset_name, split_data=True)
+
+        #first reshape to (n_ts, ts_len, d)
+        X_train = X_train.reshape(X_train.shape[0], X_train.shape[2], X_train.shape[1])
+        X_test = X_test.reshape(X_test.shape[0], X_test.shape[2], X_test.shape[1])
+
         if ts_length is not None:
             X_train = TimeSeriesResampler(sz=ts_length).fit_transform(X_train)
             X_test = TimeSeriesResampler(sz=ts_length).fit_transform(X_test)
+            
         if normalize:
-            X_train = (X_train - X_train.min(axis=1)[:, None]) / (X_train.max(axis=1)[:, None] - X_train.min(axis=1)[:, None])
-            X_test = (X_test - X_test.min(axis=1)[:, None]) / (X_test.max(axis=1)[:, None] - X_test.min(axis=1)[:, None])
+            #normalize
+            X_train = (X_train - X_train.min()) / (X_train.max() - X_train.min())
+            X_test = (X_test - X_test.min()) / (X_test.max() - X_test.min())
+        
+        #then reshape back to (n_ts, d, ts_len)
+        X_train = X_train.reshape(X_train.shape[0], X_train.shape[2], X_train.shape[1])
+        X_test = X_test.reshape(X_test.shape[0], X_test.shape[2], X_test.shape[1])
 
         #from train, keep 15% for validation
         X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, test_size=0.15, random_state=42)
