@@ -1,6 +1,6 @@
 # This repository contains the code for time-series (TS) classification with various state-of-the-art TS classification models. 
 
-Entire pipeline is developed in a way such that an easy integration of mlflow, hydra and optuna sweeper is possible.
+Entire pipeline is developed in a way such that an easy integration of ***mlflow***, ***hydra*** and ***optuna sweeper*** is possible.
 
 1. The simplest way to run a model on a specific dataset is to run the following command in the terminal, in the root directory of the repository:
 ```bash
