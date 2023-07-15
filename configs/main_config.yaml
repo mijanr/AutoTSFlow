@@ -2,6 +2,25 @@ defaults:
   - _self_
   - datasets: dataset_params
   - models: LSTM_FCN
-
+  - search_spaces@hydra.sweeper.params: ${models}
+  - override hydra/sweeper: optuna
 dataset_name:
   - HandMovementDirection
+
+training_params:
+  epochs: 5
+  lr: 0.001
+
+hydra:
+#  run:
+#   dir: exp
+ sweeper:
+   sampler:
+      _target_: optuna.samplers.TPESampler
+      seed: 123
+   direction: maximize
+   study_name: main_val
+   storage: null
+   n_trials: 10
+   n_jobs: 4
+   
