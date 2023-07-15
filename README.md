@@ -31,9 +31,21 @@ Model name can be anything that is available in the `codes/models` directory, gi
 Similarly, other parameters can also be specified in the terminal, and passed as arguments. 
 
 ## Requirements
+requirements.yml file contains all the dependencies required to run the code. To install all the dependencies, run the following command in the terminal, given that anaconda is installed:
+```bash
+conda env create -f requirements.yml
+```
+This will create a conda environment named `ts_cl` with all the dependencies installed.
+It insall Pytorch with CPU support. To install Pytorch with GPU support, follow the instructions given [here](https://pytorch.org/get-started/locally/).
 
+## Datasets
+This repository uses the datasets from the [UEA & UCR Time Series Classification Repository](https://www.timeseriesclassification.com/). The datasets are automatically downloaded and stored in the `data` directory.
+
+## Models
+We use the classification models available in [tsai library](https://timeseriesai.github.io/tsai/). Models can be added to this repository by adding the corresponding config file in the `config` directory, and the corresponding model file in the `codes/models` directory.
 
 ## Authors
+* [**Md Mijanur Rahman**](https://github.com/mijanr)
 
 
 
