@@ -1,0 +1,7 @@
+defaults:
+  - _self_
+  - datasets: dataset_params
+  - models: LSTM_FCN
+
+dataset_name:
+  - HandMovementDirection
