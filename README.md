@@ -29,6 +29,12 @@ python main.py --multirun "dataset_name=[Handwriting]" "models=LSTM_FCN"
 Model name can be anything that is available in the `codes/models` directory, given corresponding configs are also available.
 
 Similarly, other parameters can also be specified in the terminal, and passed as arguments. 
+## Mlruns
+All the runs are stored in the `mlruns` directory. To visualize the runs, run the following command in the terminal, in the root directory of the repository:
+```bash
+mlflow ui
+```
+This will start a server, and the runs can be visualized in the browser at `localhost:5000`.
 
 ## Requirements
 requirements.yml file contains all the dependencies required to run the code. To install all the dependencies, run the following command in the terminal, given that anaconda is installed:
