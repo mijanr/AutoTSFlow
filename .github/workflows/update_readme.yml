@@ -28,7 +28,7 @@ jobs:
           # Replace content between <!--START_SECTION:best_runs--> and <!--END_SECTION:best_runs-->
           new_content="<!--START_SECTION:best_runs--> \n $content \n <!--END_SECTION:best_runs-->"
 
-          updated_readme_content=$(echo "$readme_content" | sed -e '/<!--START_SECTION:best_runs-->/, /<!--END_SECTION:best_runs-->/c\'"$new_content")
+          updated_readme_content=$(echo "$readme_content" | sed -e "s/<!--START_SECTION:best_runs-->.*<!--END_SECTION:best_runs-->/$new_content/g")
           
           # Update README.md
           echo "$updated_readme_content" > README.md
