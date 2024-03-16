@@ -15,10 +15,16 @@ jobs:
         run: |
           sed -n '/<!--START_SECTION:best_runs-->/, /<!--END_SECTION:best_runs-->/p' results/best_runs.md > extracted_content.md
 
+      - name: Read README.md
+        id: readme_content
+        run: |
+          cat README.md
+          echo "::set-output name=content::$(cat README.md)"
+
       - name: Update README
         run: |
-          # Remove existing content between markers
-          sed -i '/<!--START_SECTION:best_runs-->/,/<!--END_SECTION:best_runs-->/d' README.md
-          
-          # Insert new content between markers
-          sed -i -e '/<!--START_SECTION:best_runs-->/r extracted_content.md' README.md
+          # Extract existing content between markers
+          existing_content=$(echo "${{ steps.readme_content.outputs.content }}" | sed -n '/<!--START_SECTION:best_runs-->/, /<!--END_SECTION:best_runs-->/p')
+
+          # Replace existing content with extracted content from best_runs.md
+          sed -i "s@${existing_content}@$(cat extracted_content.md)@" README.md
