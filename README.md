@@ -54,7 +54,7 @@ We use the classification models available in [tsai library](https://timeseriesa
 You can find the results in the following table:
 
 <!--START_SECTION:best_runs-->
-| Dataset               |   GRU_FCN |       LSTM |   LSTM_FCN |
+
 <!--END_SECTION:best_runs-->
 
 
