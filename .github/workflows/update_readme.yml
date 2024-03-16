@@ -24,10 +24,8 @@ jobs:
           # Read the content of README.md
           readme_content=$(cat README.md)
           
-          echo "Readme Content: $readme_content"
-
-          # Replace content between <!--START--> and <!--END--> with best_runs.md content
-          sed -i -e "/<!--START-->/, /<!--END-->/c\<!--START-->\n$readme_content\n<!--END-->" README.md
+          #add the best runs content to the README.md at the end of the file
+            echo "$readme_content" >> README.md
           
           # Check if there are changes in README.md
           if ! git diff --quiet README.md; then
