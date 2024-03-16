@@ -3,10 +3,13 @@ We will generate a table here with the results of the experiments from mlruns
 """
 
 import mlflow
+import git
+
+basePath = git.Repo('.', search_parent_directories=True).working_tree_dir
+mlflow.set_tracking_uri(f"file:{basePath}/mlruns")
 
 def get_best_runs():  
-
-    mlflow.set_tracking_uri("file:../mlruns")
+    
     all_runs = mlflow.search_runs(search_all_experiments=True)
     columns = ['tags.mlflow.runName', 'params.model_name', 'metrics.accuracy']
     all_runs = all_runs[columns]
