@@ -1,35 +1,29 @@
-name: Update README with best runs
+name: Update README
+
 on:
-  push:
-    branches:
-      - test
+    push:
+        branches:
+          - test
 
 jobs:
   update_readme:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Use an Ubuntu environment
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3 # Update to the latest version
+      - uses: actions/checkout@v3  # Check out the code
 
-    #   - name: Extract content from best_runs.md
-    #     id: extract_best_runs   # Add an 'id' for later referencing
-    #     run: |
-    #         cat best_runs.md | sed -n '/<!--START_SECTION:best_runs-->/,/<!--END_SECTION:best_runs-->/p' | sed '1d;$d' > extracted_content.md
-
-      - name: Update README
+      - name: Update README.md
         run: |
-          new_content="$(cat results/best_runs.md)"
+          # Read the contents of best_runs.md
+          best_runs_content=$(cat results/best_runs.md)
 
-          if [[ -n "${new_content}" ]]; then
-             # Replace content between markers with new content
-             updated_content="${existing_content/<!--START_SECTION:best_runs-->*/<!--START_SECTION:best_runs-->\\${new_content}\\<!--END_SECTION:best_runs-->}"
+          # Replace the section in README.md (using delimiter to handle special characters)
+          sed -i '//,//c\\
+          '"$best_runs_content"'
+          \' README.md
 
-             # Commit changes to README.md
-             git config user.name "Md Mijanur Rahman"
-             git config user.email "md.rahman.ce@gmail.com"
-             git add README.md
-             git commit -m "Automatic update: Best runs section"
-             git push
-          else
-            echo "No changes in best_runs.md; update skipped"
-          fi
+          # Commit and push the updated README.md
+          git config --global user.email "md.rahman.ce@gmail.com"
+          git config --global user.name "Md Mijanur Rahman"
+          git commit -m "Automatic README update" README.md
+          git push 
