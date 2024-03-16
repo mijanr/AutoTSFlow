@@ -52,7 +52,9 @@ We use the classification models available in [tsai library](https://timeseriesa
 
 ## Results
 You can find the results in the following table:
-<iframe src="results/best_runs.html" width="100%" height="500"></iframe>
+
+<iframe src="results/best_runs.md" width="100%" height="500px"></iframe>
+
 
 ## Authors
 * [**Md Mijanur Rahman**](https://github.com/mijanr)
