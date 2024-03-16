@@ -39,7 +39,7 @@ This will start a server, and the runs can be visualized in the browser at `loca
 ## Requirements
 requirements.yml file contains all the dependencies required to run the code. To install all the dependencies, run the following command in the terminal, given that anaconda is installed:
 ```bash
-conda env create -f requirements.yml
+conda env create -f requirements.yaml
 ```
 This will create a conda environment named `ts_cl` with all the dependencies installed.
 It insall Pytorch with CPU support. To install Pytorch with GPU support, follow the instructions given [here](https://pytorch.org/get-started/locally/).
