@@ -22,12 +22,14 @@ jobs:
 
       - name: Update README
         run: |
-          # Extract existing content between markers
-          existing_content=$(echo "${{ steps.readme_content.outputs.content }}" | sed -n '/<!--START_SECTION:best_runs-->/, /<!--END_SECTION:best_runs-->/p')
+          # Read existing content from README.md
+          existing_content="${{ steps.readme_content.outputs.content }}"
 
-          # Replace existing content with extracted content from best_runs.md
-          new_content=$(cat extracted_content.md)
-          updated_content=$(echo "${{ steps.readme_content.outputs.content }}" | sed "s@${existing_content}@${new_content}@")
+          # Read new content from extracted_content.md
+          new_content="$(cat extracted_content.md)"
+
+          # Replace existing content between markers with new content
+          updated_content="${existing_content/<!--START_SECTION:best_runs-->*/<!--START_SECTION:best_runs-->\\${new_content}\\<!--END_SECTION:best_runs-->}"
 
           # Write updated content back to README.md
           echo "${updated_content}" > README.md
