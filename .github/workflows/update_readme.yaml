@@ -3,7 +3,7 @@ name: Update README
 on:
   push:
     branches:
-      - main
+      - correct_woflow_git
 
 jobs:
   update-readme:
@@ -28,7 +28,13 @@ jobs:
 
       - name: Commit results if it changed
         run: |
-          git diff --exit-code --quiet results/best_runs.md || (git add results/best_runs.md && git commit -m "Update best runs")
+          # if the results changed then commit the changes
+          if [[ $(git status --porcelain) ]]; then
+            git config --global user.email "md.rahman.ce@gmail.com"
+            git config --global user.name "Md Mijanur Rahman"
+            git commit -am "Update results" || exit 0
+            git push
+          fi
 
       - name: Replace results in README
         run: |
