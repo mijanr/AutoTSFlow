@@ -50,6 +50,10 @@ This repository uses the datasets from the [UEA & UCR Time Series Classification
 ## Models
 We use the classification models available in [tsai library](https://timeseriesai.github.io/tsai/). Models can be added to this repository by adding the corresponding config file in the `config` directory, and the corresponding model file in the `codes/models` directory.
 
+## Results
+You can find the results in the following table:
+<iframe src="results/best_runs.html" width="100%" height="500"></iframe>
+
 ## Authors
 * [**Md Mijanur Rahman**](https://github.com/mijanr)
 
