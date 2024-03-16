@@ -9,27 +9,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3 # Update to the latest version
 
       - name: Extract content from best_runs.md
+        id: extract_best_runs   # Add an 'id' for later referencing
         run: |
-          sed -n '/<!--START_SECTION:best_runs-->/, /<!--END_SECTION:best_runs-->/p' results/best_runs.md > extracted_content.md
-
-      - name: Read README.md
-        id: readme_content
-        run: |
-          echo "::set-output name=content::$(cat README.md)"
+          sed -n '//, //p' results/best_runs.md > extracted_content.md
 
       - name: Update README
         run: |
-          # Read existing content from README.md
-          existing_content="${{ steps.readme_content.outputs.content }}"
-
           # Read new content from extracted_content.md
           new_content="$(cat extracted_content.md)"
 
-          # Replace existing content between markers with new content
-          updated_content="${existing_content/<!--START_SECTION:best_runs-->*/<!--START_SECTION:best_runs-->\\${new_content}\\<!--END_SECTION:best_runs-->}"
+          # Update content only if there were changes
+          if [[ -n "${new_content}" ]]; then
+            # Replace existing section with new content
+            sed -i '//,//c\\n'"${new_content}"'\n' README.md
 
-          # Write updated content back to README.md
-          echo "${updated_content}" > README.md
+             # Commit changes to README.md
+             git config user.name "GitHub Actions Bot" 
+             git config user.email "github-actions-bot@users.noreply.github.com"
+             git add README.md
+             git commit -m "Automatic update: Best runs section"
+             git push
+          else
+            echo "No changes in best_runs.md; update skipped"
+          fi
