@@ -53,9 +53,9 @@ We use the classification models available in [tsai library](https://timeseriesa
 ## Results
 You can find the results in the following table:
 
-<!--START_SECTION:best_runs--> 
-  
- <!--END_SECTION:best_runs-->
+<!--START_SECTION:best_runs-->
+
+<!--END_SECTION:best_runs-->
 
 
 ## Authors
