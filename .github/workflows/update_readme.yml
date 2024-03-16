@@ -1,29 +1,39 @@
-name: Update README
+name: Update Best Runs
 
 on:
-    push:
-        branches:
-          - test
+  push:
+    branches:
+      - test  # Change this to your main branch name if different
 
 jobs:
-  update_readme:
-    runs-on: ubuntu-latest  # Use an Ubuntu environment
-
+  update_best_runs:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3  # Check out the code
-
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
+      - name: Read Best Runs Content
+        id: read_best_runs
+        run: |
+          # Read the content of best_runs.md file
+          content=$(cat results/best_runs.md)
+          echo "::set-output name=content::$content"
+      
       - name: Update README.md
         run: |
-          # Read the contents of best_runs.md
-          best_runs_content=$(cat results/best_runs.md)
-
-          # Replace the section in README.md (using delimiter to handle special characters)
-          sed -i '//,//c\\
-          '"$best_runs_content"'
-          \' README.md
-
-          # Commit and push the updated README.md
-          git config --global user.email "md.rahman.ce@gmail.com"
+          # Read the content of README.md
+          readme_content=$(cat README.md)
+          
+          # Replace content between <!--START_SECTION:best_runs--> and <!--END_SECTION:best_runs-->
+          new_content="<!--START_SECTION:best_runs-->\n$(echo "${{ steps.read_best_runs.outputs.content }}")\n<!--END_SECTION:best_runs-->"
+          updated_readme_content=$(echo "$readme_content" | sed -e '/<!--START_SECTION:best_runs-->/, /<!--END_SECTION:best_runs-->/c\'"$new_content")
+          
+          # Update README.md
+          echo "$updated_readme_content" > README.md
+          
+          # Commit and push changes
           git config --global user.name "Md Mijanur Rahman"
-          git commit -m "Automatic README update" README.md
-          git push 
+          git config --global user.email "md.rahman.ce@gmail.com"
+          git add README.md
+          git commit -m "Update best runs in README.md"
+          git push
