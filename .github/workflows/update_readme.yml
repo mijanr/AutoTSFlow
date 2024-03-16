@@ -18,17 +18,15 @@ jobs:
 
       - name: Update README
         run: |
-          # Read new content from extracted_content.md
           new_content="$(cat extracted_content.md)"
 
-          # Update content only if there were changes
           if [[ -n "${new_content}" ]]; then
             # Replace existing section with new content
             sed -i '//,//c\\n'"${new_content}"'\n' README.md
 
              # Commit changes to README.md
-             git config user.name "GitHub Actions Bot" 
-             git config user.email "github-actions-bot@users.noreply.github.com"
+             git config user.name "Md Mijanur Rahman"
+             git config user.email "md.rahman.ce@gmail.com"
              git add README.md
              git commit -m "Automatic update: Best runs section"
              git push
