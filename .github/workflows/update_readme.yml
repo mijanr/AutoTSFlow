@@ -14,7 +14,7 @@ jobs:
       - name: Extract content from best_runs.md
         id: extract_best_runs   # Add an 'id' for later referencing
         run: |
-            sed -n '//,//p' results/best_runs.md > extracted_content.md
+            awk '/## Best Runs/{flag=1; next} /##/{flag=0} flag' best_runs.md > extracted_content.md
 
       - name: Update README
         run: |
