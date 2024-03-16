@@ -1,0 +1,15 @@
+artifact_uri: file:///home/pops/myProjects/ts_classification_mlflow_hydra_optuna/mlruns/507776702722051758/5bf93d7ce73c449892e5129e89920d32/artifacts
+end_time: 1710630898501
+entry_point_name: ''
+experiment_id: '507776702722051758'
+lifecycle_stage: active
+run_id: 5bf93d7ce73c449892e5129e89920d32
+run_name: ECG200
+run_uuid: 5bf93d7ce73c449892e5129e89920d32
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1710630898488
+status: 3
+tags: []
+user_id: pops

@@ -1,0 +1,9 @@
+- models.model.hidden_size=128
+- models.model.n_layers=1
+- models.model.bias=True
+- models.model.rnn_dropout=0.4
+- models.model.bidirectional=False
+- models.model.fc_dropout=0.30000000000000004
+- models.model.init_weights=False
+- dataset_name=[ECG200]
+- models=LSTM
