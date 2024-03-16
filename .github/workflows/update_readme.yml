@@ -2,7 +2,7 @@ name: Update README with best runs
 on:
   push:
     branches:
-      - test
+      - main
 
 jobs:
   update_readme:
@@ -18,7 +18,6 @@ jobs:
       - name: Read README.md
         id: readme_content
         run: |
-          cat README.md
           echo "::set-output name=content::$(cat README.md)"
 
       - name: Update README
@@ -27,4 +26,8 @@ jobs:
           existing_content=$(echo "${{ steps.readme_content.outputs.content }}" | sed -n '/<!--START_SECTION:best_runs-->/, /<!--END_SECTION:best_runs-->/p')
 
           # Replace existing content with extracted content from best_runs.md
-          sed -i "s@${existing_content}@$(cat extracted_content.md)@" README.md
+          new_content=$(cat extracted_content.md)
+          updated_content=$(echo "${{ steps.readme_content.outputs.content }}" | sed "s@${existing_content}@${new_content}@")
+
+          # Write updated content back to README.md
+          echo "${updated_content}" > README.md
