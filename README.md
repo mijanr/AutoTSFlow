@@ -65,6 +65,3 @@ You can find the results in the following table:
 
 ## Authors
 * [**Md Mijanur Rahman**](https://github.com/mijanr)
-
-
-
