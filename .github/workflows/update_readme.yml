@@ -1,40 +1,27 @@
-name: Update Best Runs
+name: Update README
 
 on:
   push:
     branches:
-      - test  # Change this to your main branch name if different
+      - test
 
 jobs:
-  update_best_runs:
+  update-readme:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v2
-        
-      - name: Read Best Runs Content
-        id: read_best_runs
+
+      - name: Replace results in README
         run: |
-          # Read the content of best_runs.md file
-          best_run_content=$(cat results/best_runs.md)
-          echo "$best_run_content"
-      
-      - name: Update README.md
+          results=$(cat results/best_runs.md)
+          sed -i '/<!--START-->/, /<!--END-->/c\<!--START-->'"$results"'<!--END-->' README.md
+
+      - name: Commit and push if it changed
         run: |
-          # Read the content of README.md
-          readme_content=$(cat README.md)
-          
-          #add the best runs content to the README.md at the end of the file
-            echo "$best_run_content" >> README.md
-          
-          # Check if there are changes in README.md
-          if ! git diff --quiet README.md; then
-              # Commit and push changes
-              git config --global user.name "Md Mijanur Rahman"
-              git config --global user.email "md.rahman.ce@gmail.com"
-              git add README.md
-              git commit -m "Update best runs in README.md"
-              git push
-          else
-              echo "There are no changes in the README.md file"
-          fi
+          git diff
+          git config --global user.email "md.rahman.ce@gmail.com"
+          git config --global user.name "Md Mijanur Rahman"
+          git commit -am "Update README with test results" || exit 0
+          git push
