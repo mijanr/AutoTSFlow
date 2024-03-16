@@ -18,7 +18,8 @@ def get_best_runs():
     best_runs.columns.name = None
     best_runs = best_runs.rename(columns={'tags.mlflow.runName': 'Dataset'})
     # save as markdown file
-    with open('best_runs.md', 'w') as f:
+    savePath = basePath + '/results/best_runs.md'
+    with open(savePath, 'w') as f:
         f.write(best_runs.to_markdown(index=False))
 
 
