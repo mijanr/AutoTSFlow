@@ -17,7 +17,8 @@ jobs:
         run: |
           # Read the content of best_runs.md file
           content=$(cat results/best_runs.md)
-          echo "::set-output name=content::$content"
+          #print the content
+            echo "$content"
       
       - name: Update README.md
         run: |
