@@ -1,0 +1,24 @@
+name: Update README with best runs
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  update_readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Extract content from best_runs.md
+        run: |
+          sed -n '/<!--START_SECTION:best_runs-->/, /<!--END_SECTION:best_runs-->/p' results/best_runs.md > extracted_content.md
+
+      - name: Update README
+        run: |
+          # Remove existing content between markers
+          sed -i '/<!--START_SECTION:best_runs-->/,/<!--END_SECTION:best_runs-->/d' README.md
+          
+          # Insert new content between markers
+          sed -i -e '/<!--START_SECTION:best_runs-->/r extracted_content.md' README.md
