@@ -16,8 +16,8 @@ jobs:
         id: read_best_runs
         run: |
           # Read the content of best_runs.md file
-          content=$(cat results/best_runs.md)
-          echo "$content"
+          best_run_content=$(cat results/best_runs.md)
+          echo "$best_run_content"
       
       - name: Update README.md
         run: |
@@ -25,7 +25,7 @@ jobs:
           readme_content=$(cat README.md)
           
           #add the best runs content to the README.md at the end of the file
-            echo "$readme_content" >> README.md
+            echo "$best_run_content" >> README.md
           
           # Check if there are changes in README.md
           if ! git diff --quiet README.md; then
