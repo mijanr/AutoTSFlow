@@ -2,7 +2,7 @@ name: Update README with best runs
 on:
   push:
     branches:
-      - main
+      - test
 
 jobs:
   update_readme:
