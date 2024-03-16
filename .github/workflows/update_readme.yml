@@ -17,7 +17,6 @@ jobs:
         run: |
           # Read the content of best_runs.md file
           content=$(cat results/best_runs.md)
-          echo "Content from best_runs.md:"
           echo "$content"
       
       - name: Update README.md
@@ -25,8 +24,9 @@ jobs:
           # Read the content of README.md
           readme_content=$(cat README.md)
           
-          # Insert new content at line 57
-          updated_readme_content=$(awk -v content="$content" 'NR == 57 {print content} {print}' README.md)
+          # Replace content between <!--START_SECTION:best_runs--> and <!--END_SECTION:best_runs-->
+          new_content="<!--START_SECTION:best_runs-->\n$content\n<!--END_SECTION:best_runs-->"
+          updated_readme_content=$(echo "$readme_content" | sed -e '/<!--START_SECTION:best_runs-->/, /<!--END_SECTION:best_runs-->/c\'"$new_content")
           
           # Update README.md
           echo "$updated_readme_content" > README.md
