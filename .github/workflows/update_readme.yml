@@ -21,8 +21,8 @@ jobs:
           new_content="$(cat extracted_content.md)"
 
           if [[ -n "${new_content}" ]]; then
-            # Replace existing section with new content
-            sed -i '//,//c\\n'"${new_content}"'\n' README.md
+             # Replace content between markers with new content
+             updated_content="${existing_content/<!--START_SECTION:best_runs-->*/<!--START_SECTION:best_runs-->\\${new_content}\\<!--END_SECTION:best_runs-->}"
 
              # Commit changes to README.md
              git config user.name "Md Mijanur Rahman"
