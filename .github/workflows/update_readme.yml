@@ -14,9 +14,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Replace results in README
+        # run: |
+        #   results=$(cat results/best_runs.md)
+        #   sed -i '/<!--START-->/, /<!--END-->/c\<!--START-->'"$results"'<!--END-->' README.md
         run: |
           results=$(cat results/best_runs.md)
-          sed -i '/<!--START-->/, /<!--END-->/c\<!--START-->'"$results"'<!--END-->' README.md
+          awk -v r="$results" '/<!--START-->/ {print; print r; f=1} /<!--END-->/ {f=0} !f' README.md > temp && mv temp README.md
 
       - name: Commit and push if it changed
         run: |
