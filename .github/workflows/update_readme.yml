@@ -24,6 +24,8 @@ jobs:
           # Read the content of README.md
           readme_content=$(cat README.md)
           
+          echo "Readme Content: $readme_content"
+          
           # Replace content between <!--START_SECTION:best_runs--> and <!--END_SECTION:best_runs-->
           sed -i '/<!--START_SECTION:best_runs-->/, /<!--END_SECTION:best_runs-->/c\'"<!--START_SECTION:best_runs-->\n$content\n<!--END_SECTION:best_runs-->" README.md
          
