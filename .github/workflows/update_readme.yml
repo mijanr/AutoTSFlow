@@ -25,14 +25,8 @@ jobs:
           # Read the content of README.md
           readme_content=$(cat README.md)
           
-          # Define line number to insert content (line 57 in this case)
-          line_number=57
-          
-          # Replace content between <!--START_SECTION:best_runs--> and <!--END_SECTION:best_runs-->
-          new_content="<!--START_SECTION:best_runs-->\n$content\n<!--END_SECTION:best_runs-->"
-          
-          # Insert new content at the specified line number
-          updated_readme_content=$(awk -v content="$new_content" -v line="$line_number" 'NR == line {print content} {print}' README.md)
+          # Insert new content at line 57
+          updated_readme_content=$(awk -v content="$content" 'NR == 57 {print content} {print}' README.md)
           
           # Update README.md
           echo "$updated_readme_content" > README.md
