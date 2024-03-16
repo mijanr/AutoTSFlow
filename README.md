@@ -55,11 +55,6 @@ You can find the results in the following table:
 
 <!--START_SECTION:best_runs-->
 
-<!--START_SECTION:best_runs-->
-
-<!--END_SECTION:best_runs-->
-
-
 <!--END_SECTION:best_runs-->
 
 
