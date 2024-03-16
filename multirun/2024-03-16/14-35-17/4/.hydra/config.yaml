@@ -1,0 +1,21 @@
+dataset_name:
+- Handwriting
+training_params:
+  epochs: 500
+  lr: 0.001
+datasets:
+  model_params:
+    _target_: codes.dataset.Datasets.Datasets
+  data_params:
+    ts_length: 24
+    normalize: true
+models:
+  model:
+    _target_: codes.models.GRU_FCN.GRU_FCN_classifier
+    hidden_size: 16
+    rnn_layers: 3
+    bias: true
+    cell_dropout: 0.4
+    rnn_dropout: 0.30000000000000004
+    bidirectional: true
+    fc_dropout: 0.4

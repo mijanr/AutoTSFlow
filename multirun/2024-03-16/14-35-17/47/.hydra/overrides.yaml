@@ -1,0 +1,9 @@
+- models.model.hidden_size=32
+- models.model.rnn_layers=1
+- models.model.bias=False
+- models.model.cell_dropout=0.2
+- models.model.rnn_dropout=0.5
+- models.model.bidirectional=True
+- models.model.fc_dropout=0.30000000000000004
+- dataset_name=[Handwriting]
+- models=GRU_FCN

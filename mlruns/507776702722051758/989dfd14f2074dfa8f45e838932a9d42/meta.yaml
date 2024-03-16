@@ -1,0 +1,15 @@
+artifact_uri: file:///home/pops/myProjects/ts_classification_mlflow_hydra_optuna/mlruns/507776702722051758/989dfd14f2074dfa8f45e838932a9d42/artifacts
+end_time: 1710597834225
+entry_point_name: ''
+experiment_id: '507776702722051758'
+lifecycle_stage: active
+run_id: 989dfd14f2074dfa8f45e838932a9d42
+run_name: Handwriting
+run_uuid: 989dfd14f2074dfa8f45e838932a9d42
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1710597834214
+status: 3
+tags: []
+user_id: pops

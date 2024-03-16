@@ -1,0 +1,9 @@
+- models.model.hidden_size=16
+- models.model.n_layers=4
+- models.model.bias=False
+- models.model.rnn_dropout=0.2
+- models.model.bidirectional=False
+- models.model.fc_dropout=0.30000000000000004
+- models.model.init_weights=True
+- dataset_name=[Handwriting]
+- models=LSTM
