@@ -26,16 +26,21 @@ jobs:
           readme_content=$(cat README.md)
           
           # Replace content between <!--START_SECTION:best_runs--> and <!--END_SECTION:best_runs-->
-          new_content="<!--START_SECTION:best_runs--> \n $content \n <!--END_SECTION:best_runs-->"
+          new_content="<!--START_SECTION:best_runs-->\n${{ steps.read_best_runs.outputs.content }}\n<!--END_SECTION:best_runs-->"
 
-          updated_readme_content=$(echo "$readme_content" | sed -e "s/<!--START_SECTION:best_runs-->.*<!--END_SECTION:best_runs-->/$new_content/g")
+          updated_readme_content=$(echo "$readme_content" | sed -e '/<!--START_SECTION:best_runs-->/, /<!--END_SECTION:best_runs-->/c\'"$new_content")
           
           # Update README.md
           echo "$updated_readme_content" > README.md
-          
-          # Commit and push changes
-          git config --global user.name "Md Mijanur Rahman"
-          git config --global user.email "md.rahman.ce@gmail.com"
-          git add README.md
-          git commit -m "Update best runs in README.md"
-          git push
+
+          # make commit if changes are there
+            if [ "$readme_content" != "$updated_readme_content" ]; then
+                echo "Committing the changes..."
+                git config --global user.name "Md Mijanur Rahman"
+                git config --global user.email "
+                git add README.md
+                git commit -m "Update best runs in README.md"
+                git push
+            else
+                echo "No changes in README.md. So, No commit"
+            fi
