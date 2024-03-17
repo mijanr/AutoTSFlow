@@ -59,7 +59,7 @@ You can find the results in the following table:
 | ECG200                |   0.91     |   0.82      |  0.92      |
 | HandMovementDirection | nan        | nan         |  0.486486  |
 | Handwriting           |   0.101176 |   0.0541176 |  0.0752941 |
-| ItalyPowerDemand      | nan        |   0.559767  |  0.910593  |
+| ItalyPowerDemand      |   0.970845 |   0.559767  |  0.910593  |
 <!--END-->
 
 
