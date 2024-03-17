@@ -29,6 +29,15 @@ python main.py --multirun "dataset_name=[Handwriting]" "models=LSTM_FCN"
 Model name can be anything that is available in the `codes/models` directory, given corresponding configs are also available.
 
 Similarly, other parameters can also be specified in the terminal, and passed as arguments. 
+
+## Docker 
+To run the code in a docker container, run the following command in the terminal, in the root directory of the repository:
+```bash
+docker build -t ts_cl .
+docker run -it ts_cl
+```
+This will build a docker image named `ts_cl`, and run a container with the image. The code can be run in the container as described above.
+
 ## Mlruns
 All the runs are stored in the `mlruns` directory. To visualize the runs, run the following command in the terminal, in the root directory of the repository:
 ```bash
@@ -51,7 +60,7 @@ This repository uses the datasets from the [UEA & UCR Time Series Classification
 We use the classification models available in [tsai library](https://timeseriesai.github.io/tsai/). Models can be added to this repository by adding the corresponding config file in the `config` directory, and the corresponding model file in the `codes/models` directory.
 
 ## Results
-You can find the results in the following table:
+You can find the results in the following table. Each cell contains the accuracy of the corresponding model on the corresponding dataset. The results are obtained by running the models with the optimal hyperparameters found by optuna.
 
 <!--START-->
 | Dataset               |   GRU_FCN |      LSTM |   LSTM_FCN |
