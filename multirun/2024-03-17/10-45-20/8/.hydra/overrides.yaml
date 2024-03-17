@@ -1,0 +1,9 @@
+- models.model.hidden_size=16
+- models.model.rnn_layers=2
+- models.model.bias=False
+- models.model.cell_dropout=0.30000000000000004
+- models.model.rnn_dropout=0.0
+- models.model.bidirectional=False
+- models.model.fc_dropout=0.30000000000000004
+- dataset_name=[ItalyPowerDemand]
+- models=GRU_FCN

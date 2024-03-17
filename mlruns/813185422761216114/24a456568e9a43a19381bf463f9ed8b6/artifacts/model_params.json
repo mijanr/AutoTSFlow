@@ -1,0 +1,9 @@
+{
+  "hidden_size": 256,
+  "rnn_layers": 3,
+  "bias": true,
+  "cell_dropout": 0.2,
+  "rnn_dropout": 0.6,
+  "bidirectional": false,
+  "fc_dropout": 0.4
+}
