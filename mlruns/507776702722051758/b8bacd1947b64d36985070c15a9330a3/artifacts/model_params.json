@@ -1,0 +1,9 @@
+{
+  "hidden_size": 256,
+  "n_layers": 1,
+  "bias": true,
+  "rnn_dropout": 0.30000000000000004,
+  "bidirectional": true,
+  "fc_dropout": 0.6,
+  "init_weights": true
+}

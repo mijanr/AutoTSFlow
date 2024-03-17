@@ -1,0 +1,9 @@
+- models.model.hidden_size=16
+- models.model.rnn_layers=4
+- models.model.bias=True
+- models.model.cell_dropout=0.5
+- models.model.rnn_dropout=0.0
+- models.model.bidirectional=False
+- models.model.fc_dropout=0.6
+- dataset_name=[HandMovementDirection]
+- models=GRU_FCN

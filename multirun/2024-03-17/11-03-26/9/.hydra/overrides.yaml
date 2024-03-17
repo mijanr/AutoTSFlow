@@ -1,0 +1,9 @@
+- models.model.hidden_size=256
+- models.model.n_layers=4
+- models.model.bias=True
+- models.model.rnn_dropout=0.4
+- models.model.bidirectional=True
+- models.model.fc_dropout=0.6
+- models.model.init_weights=True
+- dataset_name=[HandMovementDirection]
+- models=LSTM
