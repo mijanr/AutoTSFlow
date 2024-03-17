@@ -1,0 +1,15 @@
+artifact_uri: file:///home/pops/myProjects/ts_classification_mlflow_hydra_optuna/mlruns/813185422761216114/344a4e1a9c304f35832f46732bb14f57/artifacts
+end_time: 1710673679672
+entry_point_name: ''
+experiment_id: '813185422761216114'
+lifecycle_stage: active
+run_id: 344a4e1a9c304f35832f46732bb14f57
+run_name: HandMovementDirection
+run_uuid: 344a4e1a9c304f35832f46732bb14f57
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1710673679647
+status: 3
+tags: []
+user_id: pops
