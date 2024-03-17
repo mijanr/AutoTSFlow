@@ -51,7 +51,7 @@ This repository uses the datasets from the [UEA & UCR Time Series Classification
 We use the classification models available in [tsai library](https://timeseriesai.github.io/tsai/). Models can be added to this repository by adding the corresponding config file in the `config` directory, and the corresponding model file in the `codes/models` directory.
 
 ## Results
-You can find the results in the following table:
+You can find the results in the following table. Each cell contains the accuracy of the corresponding model on the corresponding dataset. The results are obtained by running the models with the optimal hyperparameters found by optuna.
 
 <!--START-->
 | Dataset               |   GRU_FCN |      LSTM |   LSTM_FCN |
