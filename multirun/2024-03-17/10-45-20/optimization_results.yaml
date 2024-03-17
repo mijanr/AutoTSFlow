@@ -1,0 +1,10 @@
+name: optuna
+best_params:
+  models.model.hidden_size: 128
+  models.model.rnn_layers: 4
+  models.model.bias: false
+  models.model.cell_dropout: 0.5
+  models.model.rnn_dropout: 0.1
+  models.model.bidirectional: true
+  models.model.fc_dropout: 0.6
+best_value: 0.9708454810495627
