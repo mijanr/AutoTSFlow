@@ -1,0 +1,7 @@
+name: optuna
+best_params:
+  models.model.nf: 32
+  models.model.nb_filters: 64
+  models.model.ks: 160
+  models.model.bottleneck: true
+best_value: 0.91

@@ -1,0 +1,6 @@
+model:
+  _target_: codes.models.InceptionTime.InceptionTime_classifier
+  nf: 32
+  nb_filters: 32
+  ks: 40
+  bottleneck: True

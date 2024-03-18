@@ -1,0 +1,6 @@
+- models.model.nf=128
+- models.model.nb_filters=128
+- models.model.ks=40
+- models.model.bottleneck=False
+- dataset_name=[ECG200]
+- models=InceptionTime

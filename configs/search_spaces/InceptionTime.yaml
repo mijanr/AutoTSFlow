@@ -1,0 +1,4 @@
+models.model.nf: choice(8, 16, 32, 64, 128)
+models.model.nb_filters: choice(8, 16, 32, 64, 128)
+models.model.ks: choice(10, 20, 40, 80, 160)
+models.model.bottleneck: bool (True, False)
