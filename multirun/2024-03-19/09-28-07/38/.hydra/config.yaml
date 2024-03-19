@@ -1,0 +1,18 @@
+dataset_name:
+- Handwriting
+training_params:
+  epochs: 500
+  lr: 0.001
+datasets:
+  model_params:
+    _target_: codes.dataset.Datasets.Datasets
+  data_params:
+    ts_length: 24
+    normalize: true
+models:
+  model:
+    _target_: codes.models.InceptionTime.InceptionTime_classifier
+    nf: 128
+    nb_filters: 8
+    ks: 20
+    bottleneck: false

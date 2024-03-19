@@ -1,0 +1,6 @@
+{
+  "nf": 16,
+  "nb_filters": 32,
+  "ks": 40,
+  "bottleneck": false
+}
