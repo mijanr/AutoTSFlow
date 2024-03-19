@@ -1,0 +1,6 @@
+- models.model.nf=16
+- models.model.nb_filters=32
+- models.model.ks=40
+- models.model.bottleneck=False
+- dataset_name=[Handwriting]
+- models=InceptionTime
