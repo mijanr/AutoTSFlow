@@ -1,4 +1,4 @@
-# AutoTSFlow: An automated codebase for time-series classifiers
+# AutoTSFlow: An automated code-base for time-series classifiers
 This repository contains the code for time-series (TS) classification with various state-of-the-art TS classification models. 
 The entire pipeline is developed for easy integration of ***mlflow***, ***hydra***, and ***optuna sweeper***.
 
