@@ -1,0 +1,9 @@
+- models.model.hidden_size=32
+- models.model.n_layers=2
+- models.model.bias=False
+- models.model.rnn_dropout=0.1
+- models.model.bidirectional=True
+- models.model.fc_dropout=0.30000000000000004
+- models.model.init_weights=True
+- dataset_name=[ItalyPowerDemand]
+- models=LSTM
