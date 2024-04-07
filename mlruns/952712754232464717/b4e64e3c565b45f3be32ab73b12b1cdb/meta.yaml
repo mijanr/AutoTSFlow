@@ -1,0 +1,15 @@
+artifact_uri: file:///home/pops/myProjects/ts_classification_mlflow_hydra_optuna/mlruns/952712754232464717/b4e64e3c565b45f3be32ab73b12b1cdb/artifacts
+end_time: 1712502831757
+entry_point_name: ''
+experiment_id: '952712754232464717'
+lifecycle_stage: active
+run_id: b4e64e3c565b45f3be32ab73b12b1cdb
+run_name: ItalyPowerDemand
+run_uuid: b4e64e3c565b45f3be32ab73b12b1cdb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712502831744
+status: 3
+tags: []
+user_id: pops

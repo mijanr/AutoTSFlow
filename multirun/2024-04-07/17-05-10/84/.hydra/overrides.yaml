@@ -1,0 +1,6 @@
+- models.model.nf=64
+- models.model.nb_filters=8
+- models.model.ks=160
+- models.model.bottleneck=True
+- dataset_name=[ItalyPowerDemand]
+- models=InceptionTime
