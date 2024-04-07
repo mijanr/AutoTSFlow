@@ -71,7 +71,7 @@ You can find the results in the following table. Each cell contains the accuracy
 | ECG200                |  0.91     |       0.91      | 0.82      |  0.92      |
 | HandMovementDirection |  0.459459 |     nan         | 0.472973  |  0.486486  |
 | Handwriting           |  0.101176 |       0.0952941 | 0.0541176 |  0.0752941 |
-| ItalyPowerDemand      |  0.970845 |     nan         | 0.559767  |  0.910593  |
+| ItalyPowerDemand      |  0.970845 |       0.969874  | 0.559767  |  0.910593  |
 <!--END-->
 
 
