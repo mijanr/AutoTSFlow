@@ -26,12 +26,16 @@ jobs:
       - name: Run script
         run: python results/gen_result.py
 
+      - name: Set Git Config
+        run: |
+          git config --global user.email "${{ secrets.MY_EMAIL }}"
+          git config --global user.name "${{ secrets.MY_NAME }}"
+
       - name: Commit results if it changed
         run: |
           # if the results changed then commit the changes
           if [[ $(git status --porcelain) ]]; then
-            git config --global user.email "md.rahman.ce@gmail.com"
-            git config --global user.name "Md Mijanur Rahman"
+            git add results/best_runs.md
             git commit -am "Update results" || exit 0
             git push
           fi
@@ -45,8 +49,10 @@ jobs:
 
       - name: Commit and push if it changed
         run: |
-          git diff
-          git config --global user.email "md.rahman.ce@gmail.com"
-          git config --global user.name "Md Mijanur Rahman"
-          git commit -am "Update README with test results" || exit 0
-          git push
+          if [[ $(git status --porcelain) ]]; then
+            git add README.md
+            git commit -am "Update README with test results" || exit 0
+            git push
+          fi
+    
+
