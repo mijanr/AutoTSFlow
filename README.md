@@ -1,6 +1,9 @@
 # AutoTSFlow: An automated code-base for time-series classification
 This repository contains the code for time-series (TS) classification with various state-of-the-art TS classification models. 
-The entire pipeline is developed for easy integration of ***mlflow***, ***hydra***, and ***optuna sweeper***.
+The entire pipeline is developed for easy integration of ***mlflow***, ***hydra***, and ***optuna sweeper***, facilitating efficient experimentation, hyperparameter tuning, and configuration management.
+
+The pipeline is developed in a modular way, where the models, datasets, and configurations can be easily added or modified.
+
 
 1. The simplest way to run a model on a specific dataset is to run the following command in the terminal in the root directory of the repository:
 ```bash
